@@ -84,7 +84,7 @@ config.action_mailer.smtp_settings = {
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.perform_deliveries = true
   config.action_mailer.raise_delivery_errors = false
-  config.action_mailer.default_charset = "utf-8"
+  config.action_mailer.default_charset: "utf-8"
 
 
   # Use default logging formatter so that PID and timestamp are not suppressed.
