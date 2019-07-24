@@ -1,0 +1,215 @@
+<!-- Header Carousel -->
+<header id="myCarousel" class="carousel slide">
+    <!-- Indicators -->
+    <ol class="carousel-indicators">
+        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+        <li data-target="#myCarousel" data-slide-to="1"></li>
+        <li data-target="#myCarousel" data-slide-to="2"></li>
+        <li data-target="#myCarousel" data-slide-to="3"></li>
+    </ol>
+
+    <!-- Wrapper for slides -->
+    <div class="carousel-inner">
+        <div class="item active">
+            <div class="fill" width="602" height="376"
+              style="background-image:url('/images/dw.jpg');
+              background-color:AntiqueWhite;
+              background-position:center;
+              background-repeat:no-repeat;">
+            </div>
+            <div class="carousel-caption">
+                <h3>The Other Guys Say This Is Easy!</h3>
+            </div>
+        </div>
+        <div class="item">
+            <div class="fill" width="426" height="420"
+              style="background-image:url('/images/15-puzzle.gif');
+              background-color:lavenderblush;
+              background-position:center;
+              background-repeat:no-repeat;">
+            </div>
+            <div class="carousel-caption">
+                <h3>Why not just slide web page elements like game pieces?</h3>
+            </div>
+        </div>
+        <div class="item">
+            <div class="fill" width="806" height="340"
+              style="background-image:url('/images/sequential_program.png');
+              background-color:white;
+              background-repeat:no-repeat;
+              background-position:center;">
+            </div>
+            <div class="carousel-caption">
+                <h3>Why not write our web apps <em>sequentially</em>?</h3>
+            </div>
+        </div>
+        <div class="item">
+            <div class="fill" width="664" height="454"
+              style="background-image:url('/images/scratch.png');
+              background-color:gray;
+              background-position:center;
+              background-repeat:no-repeat;">
+            </div>
+            <div class="carousel-caption">
+                <h3>Let's program visually!</h3>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        resizeCarousel();
+
+        $(window).resize(function() {
+            resizeCarousel();
+        });
+
+        function resizeCarousel() {
+
+            $('.carousel-inner .item').each(function(index) {
+                var fillDiv = $(this).find('.fill');
+                var imageRatio = fillDiv.attr('width') / fillDiv.attr('height');
+                var newMaxWidth = $('#myCarousel').width() - 50;
+                var newHeight = $('#myCarousel').height() - 100;
+                var newWidth = newHeight * imageRatio; 
+
+                if (newWidth > newMaxWidth) {
+                    var minusWidth = newWidth - newMaxWidth;
+                    var minusHeight = minusWidth / imageRatio;
+                    newHeight -= minusHeight;
+                    newWidth -= minusWidth;
+                }
+
+                fillDiv.css('background-size', newWidth +'px '+ newHeight +'px');
+            });
+        }
+    </script>
+
+    <!-- Controls -->
+    <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+        <span class="icon-prev"></span>
+    </a>
+    <a class="right carousel-control" href="#myCarousel" data-slide="next">
+        <span class="icon-next"></span>
+    </a>
+</header>
+
+<!-- Page Content -->
+<div class="container">
+
+    <!-- Marketing Icons Section -->
+    <div class="row">
+        <div class="col-lg-12">
+            <h3>Mashweb.Club&mdash;Home of end-user-programmed web apps</h3>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-4">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h4>Big Idea #1</h4>
+                </div>
+                <div class="panel-body">
+        <p>Let's add HTML elements and widgets to a web page, rearrange them, stretch them, recolor them, and set their other attributes just <strong><em>by pointing, clicking, and dragging.</em></strong> Let's make <em>direct manipulation</em> work.</p>
+                    <center><a href="http://doc.mashweb.club/zen/experiments/NodeLists/NodeListDMI.html" class="btn btn-success">Drag Some HTML Elements</a></center>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-4">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h4>Big Idea #2</h4>
+                </div>
+                <div class="panel-body">
+        <p>Let's use <strong><em>web continuations</em></strong> as a foundation for simple, sequential programs that users can build. Without web continuations, a program that relies on more than one input message from the user will be complicated.</p>
+                    <center><a href="/not_added_yet.html" class="btn btn-success">Try Continuations</a></center>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-4">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h4>Big Idea #3</h4>
+                </div>
+                <div class="panel-body">
+        <p>Let's <strong><em>represent program blocks (AST nodes) with HTML elements</em></strong> the user can add, rearrange, and delete by direct manipulation. The user interface of the HTML-element editor can be adapted for the purpose.</p>
+                    <center><a href="/images/lisp-function.png" class="btn btn-success">See Our Inspiration</a></center>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- /.row -->
+    <div class="row">
+        <div class="col-lg-12">
+            <h4><strong><em>Together</em></strong> let's make powerful websites more personal and easier.</h4>
+      <p>If you are a user who wants to build a website or a <em>web app</em> but find the technical
+    aspects daunting and unfriendly, please try our <a href="http://doc.mashweb.club/zen/experiments/">demos</a> of web pages that are
+    easily manipulated <em>without programming</em>;
+    or <a href="/users/sign_up">join Mashweb.Club</a>
+    to get news about the interfaces we are creating on this website to enable non-techies
+    to build powerful, useful web apps;
+    or post some comments on the <a href="https://blog.mashweb.club">Mashweb.Club Blog</a>
+    to give your feedback. If you are a programmer or web designer, please consider collaborating
+    with us to develop a place on the Web where practically <em>anyone</em> can create a very unique
+    web app.
+        </div>
+    </div>
+    <!-- /.row -->
+    <div class="row">
+  <div class="col-md-12">
+      <div class="panel-heading">
+    <center>
+        <a href="/users/sign_up" class="btn btn-lg btn-warning">Use or Help Develop<br />Mashweb Technology</a>
+    </center>
+      </div>
+  </div>
+    </div>
+    <!-- /.row -->
+
+    <!-- Features Section -->
+    <div class="row">
+        <div class="col-lg-12">
+            <h2 class="page-header">Proposed Features of the Mashweb.Club Website</h2>
+        </div>
+        <div class="col-md-6">
+            <p>The plan for Mashweb.Club 1.0 includes:</p>
+            <ul>
+                <li>Allow visitors to create and edit web pages <em>without coding</em>.</li>
+    <li>Allow visitors to create and edit single-page web apps using simple visual programming patterned after successful visual programming environments for children.</li>
+    <li>Allow subscribers to save web pages and single-page web apps to their own subdomains under Mashweb.Club, e.g. John.Mashweb.Club.</li>
+                <li>All the abilities of browser-based rich-text editors.</li>
+    <li>The ability to drag and drop images and web links to Mashweb.Club-created web pages.</li>
+                <li>The ability to include some web components.</li>
+    <li>Lazy-loaded widget contents, e.g. lazy-loaded tabs.</li>
+            </ul>
+        </div>
+        <div class="col-md-6">
+            <img class="img-responsive" src="/images/Learn,_invent,_share_cycle.svg.png" alt="Learn, invent, share cycle" style="max-width: 50%;">
+        </div>
+    </div>
+    <!-- /.row -->
+
+    <hr>
+
+    <!-- Call to Action Section -->
+    <div class="well">
+        <div class="row">
+            <div class="col-md-12">
+                <p>
+        We are sharing a detailed white paper on the background of the Mashweb architecture and the code we have written to implement parts of the architecture. If you would like to be informed of more developments of the Mashweb architecture and the Mashweb.Club website, please put yourself on our mailing list. For the next few months announcements will not occur more than once a week. We will not share your email address with anyone. Signing up will also give you your own area of Mashweb.Club when that facility is ready.
+    </p>
+                <center><a class="btn btn-lg btn-success" href="/users/sign_up">Sign Up</a></center>
+            </div>
+        </div>
+    </div>
+
+</div>
+<!-- /.container -->
+
+<!-- Script to Activate the Carousel -->
+<script>
+$(document).on('ready', function () {
+  $('.carousel').carousel({
+      interval: 10000 //changes the speed
+  })
+});
+</script>
