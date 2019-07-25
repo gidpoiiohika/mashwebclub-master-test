@@ -12,7 +12,6 @@ Rails.application.configure do
 
   # Full error reports are disabled and caching is turned on.
   config.consider_all_requests_local       = false
-  config.action_controller.perform_caching = true
 
   # Disable serving static files from the `/public` folder by default since
   # Apache or NGINX already handles this.
@@ -55,7 +54,6 @@ Rails.application.configure do
   # Use a real queuing backend for Active Job (and separate queues per environment)
   # config.active_job.queue_adapter     = :resque
   # config.active_job.queue_name_prefix = "mashweb_my_rails_composer_#{Rails.env}"
-  config.action_mailer.perform_caching = false
 
   # Ignore bad email addresses and do not raise email delivery errors.
   # Set this to true and configure the email server for immediate delivery to raise delivery errors.
@@ -69,22 +67,24 @@ Rails.application.configure do
   config.active_support.deprecation = :notify
 
 
-config.action_mailer.smtp_settings = {
-  port: ENV['MAILGUN_SMTP_PORT'],
-  address: ENV['MAILGUN_SMTP_SERVER'],
-  user_name: ENV['MAILGUN_SMTP_LOGIN'],
-  password: ENV['MAILGUN_SMTP_PASSWORD'],
-  domain: ENV['MAILGUN_DOMAIN'],
-  authentication: "plain",
-  enable_starttls_auto: true
-}
-
   # ActionMailer Config
+  config.action_mailer.perform_caching = false
+  config.action_mailer.perform_deliveries = true
+  config.action_mailer.raise_delivery_errors = false
+  config.action_mailer.default charset: "utf-8"
   config.action_mailer.default_url_options = { :host => "mashweb-club.herokuapp.com" }
   config.action_mailer.delivery_method = :smtp
-  config.action_mailer.perform_deliveries = true
-  config.action_mailer.raise_delivery_errors = true
-  config.action_mailer.default charset: 'utf-8'
+
+  config.action_mailer.smtp_settings = {
+    port: ENV['MAILGUN_SMTP_PORT'],
+    address: ENV['MAILGUN_SMTP_SERVER'],
+    user_name: ENV['MAILGUN_SMTP_LOGIN'],
+    password: ENV['MAILGUN_SMTP_PASSWORD'],
+    domain: ENV['MAILGUN_DOMAIN'],
+    authentication: "plain",
+    enable_starttls_auto: true
+  }
+
 
 
   # Use default logging formatter so that PID and timestamp are not suppressed.
