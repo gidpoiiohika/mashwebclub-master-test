@@ -71,16 +71,16 @@ Rails.application.configure do
 
 config.action_mailer.smtp_settings = {
   port: 587,
-  address: ENV['MAIL_ADDRESS'],
+  address: "smtp.mailgun.org",
   user_name: ENV['MAIL_USERNAME'],
   password: ENV['MAIL_PASSWORD'],
-  domain: "mashwebclub.herokuapp.com",
+  domain: "sandbox5582222b9d3241af87589b11b08bccc8.mailgun.org",
   authentication: "plain",
   enable_starttls_auto: true
 }
 
   # ActionMailer Config
-  config.action_mailer.default_url_options = { :host => "mashwebclub.herokuapp.com" }
+  config.action_mailer.default_url_options = { :host => "mashweb-club.herokuapp.com" }
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.perform_deliveries = true
   config.action_mailer.raise_delivery_errors = false
