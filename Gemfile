@@ -41,7 +41,7 @@ group :development, :test do
   gem 'faker'
   gem 'rspec-rails'
   gem 'rubocop'
-  gem 'sqlite3'
+  gem 'sqlite3', '~> 1.3.0' 
 end
 group :production do
   gem 'pg'

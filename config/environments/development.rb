@@ -26,10 +26,6 @@ Rails.application.configure do
     config.cache_store = :null_store
   end
 
-  # Don't care if the mailer can't send.
-  config.action_mailer.raise_delivery_errors = false
-
-  config.action_mailer.perform_caching = false
 
   # Print deprecation notices to the Rails logger.
   config.active_support.deprecation = :log
@@ -42,22 +38,22 @@ Rails.application.configure do
   # number of complex assets.
   config.assets.debug = true
 
-  config.action_mailer.smtp_settings = {
-    address: "smtp.gmail.com",
-    port: 587,
-    domain: Rails.application.secrets.domain_name,
-    authentication: "plain",
-    enable_starttls_auto: true,
-    user_name: Rails.application.secrets.email_provider_username,
-    password: Rails.application.secrets.email_provider_password
-  }
-  # ActionMailer Config
-  config.action_mailer.default_url_options = { :host => 'localhost:3000' }
-  config.action_mailer.delivery_method = :smtp
-  config.action_mailer.raise_delivery_errors = true
-  # Send email in development mode?
+  config.action_mailer.perform_caching = false
   config.action_mailer.perform_deliveries = true
+  config.action_mailer.raise_delivery_errors = true
+  config.action_mailer.default charset: "utf-8"
+  config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
+  config.action_mailer.delivery_method = :smtp
 
+  config.action_mailer.smtp_settings = {
+    port: 587,
+    address: "smtp.mailgun.org",
+    user_name: "postmaster@sandbox5582222b9d3241af87589b11b08bccc8.mailgun.org",
+    password: "1e977cf5753229b875336a5f877e3a43-c50f4a19-1ca46e68",
+    domain: "sandbox5582222b9d3241af87589b11b08bccc8.mailgun.org",
+    authentication: "plain",
+    enable_starttls_auto: true
+  }
 
   # Suppress logger output for asset requests.
   config.assets.quiet = true
